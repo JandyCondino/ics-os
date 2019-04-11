@@ -842,7 +842,7 @@ int console_execute(const char *str){
       if (u!=0){
          if (module_unload_library(u) == -1)
             printf("Error unloading library");
-   	};
+      };
    }else
    if (strcmp(u,"demo_graphics") == 0){   //-- Runs the graphics demonstration.
       demo_graphics();
@@ -871,6 +871,15 @@ int console_execute(const char *str){
                printf("Usage: cc <name.exe> <name.c>\n");
          }
       }
+   }else
+   //task 1 here
+   if (strcmp(u,"add") == 0){ //-- Adds two integers. Args: <num1> <num2>
+      int a, b;
+      u = strtok(0," ");
+      a = atoi(u);
+      u = strtok(0," ");
+      b = atoi(u);
+      printf("%d + %d = %d\n",a,b,a+b);
    }else
    if (u[0] == '$'){                      //-- Sends message to a device.
       int i, devid;
